@@ -8,7 +8,7 @@
         -Courses
         -Session
         -Attendees
-    """
+    """,
     
     'Author': 'Odoo',
     'website': 'https://www.odoo.com',
