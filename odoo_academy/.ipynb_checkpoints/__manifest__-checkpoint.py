@@ -17,8 +17,17 @@
     
     'depends': ['base'],
     
-    'data':[],
+    'data':[
+        
+        'views/course.xml',
+        'views/academy_menuitems.xml',
+        
+    ],
     
-    'demo': [],
+    'demo': [
+        
+        'demo/demo.xml'
+    ],
+
     
 }
