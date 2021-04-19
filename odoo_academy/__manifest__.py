@@ -18,7 +18,8 @@
     'depends': ['base'],
     
     'data':[
-        
+        'security/academy_security.xml',
+        'security/ir.model.access.csv',
         'views/course.xml',
         'views/academy_menuitems.xml',
         
