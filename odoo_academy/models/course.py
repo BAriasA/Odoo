@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
 
 class Course(models.Model):
     
@@ -24,10 +25,16 @@ class Course(models.Model):
     
     total_price = fields.Float(string='Total Price', readonly=True)
     
+    session_ids = fields.One2many(comodel_name='academy.session',
+                                  inverse_name='course_id', 
+                                  string='Sessions')
+    
     @api.onchange('base_price', 'additional_fee')
     def _oncahnge_total_price(self):
         if self.base_price < 0.00:
             raise UserError('Base Price cannot be set as Negative.')
+        
+        self.total_price = self.base_price + self.additional_fee
     
     @api.constrains('additional_fee')
     def _check_additional_fee(self):
